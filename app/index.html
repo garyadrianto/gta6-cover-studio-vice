@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vice Studio — GTA VI Style Cover Art Creator</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main class="app">
+  <section class="controls">
+    <div class="header-badge">VICE CITY EDITION</div>
+    <h1>VICE STUDIO</h1>
+    <p class="subtitle">Multi-Panel Poster & Cover Art Engine</p>
+
+    <div class="control-group">
+      <label class="section-title">Layout Template</label>
+      <div class="btn-grid" id="layout-presets">
+        <button type="button" class="preset-btn active" data-layout="multi4">4 Panels (Classic)</button>
+        <button type="button" class="preset-btn" data-layout="hero3">Hero Split (3 Panels)</button>
+        <button type="button" class="preset-btn" data-layout="single">Poster Solitary</button>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="section-title">Vice Color Grade</label>
+      <div class="btn-grid" id="color-grades">
+        <button type="button" class="preset-btn active" data-grade="sunset">Vice Sunset</button>
+        <button type="button" class="preset-btn" data-grade="neon">Neon Palms</button>
+        <button type="button" class="preset-btn" data-grade="gritty">Golden Hour Ink</button>
+        <button type="button" class="preset-btn" data-grade="noir">Midnight Heat</button>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="section-title">Primary Subject Photo</label>
+      <input id="photo" type="file" accept="image/*">
+    </div>
+
+    <div class="control-group">
+      <label class="section-title">Title / Headline</label>
+      <input id="caption" type="text" maxlength="32" value="VICE HEIST">
+    </div>
+
+    <div class="control-group">
+      <label class="section-title">Sub-caption</label>
+      <input id="subcaption" type="text" maxlength="40" value="STORIES OF LEONIDA">
+    </div>
+
+    <div class="export-actions">
+      <button id="export-square" class="action-btn" type="button">Export Square (1080 × 1080)</button>
+      <button id="export-portrait" class="action-btn secondary" type="button">Export Story (1080 × 1350)</button>
+    </div>
+    <p id="status" role="status"></p>
+  </section>
+
+  <section class="preview-area">
+    <canvas id="cover" width="1080" height="1080" aria-label="GTA 6 Cover Canvas"></canvas>
+  </section>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
