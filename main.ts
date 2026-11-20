@@ -22,16 +22,16 @@ function deliverViceStudio(): void {
     cpSync(localScreenshots, targetScreenshots, { recursive: true });
   }
 
-  const dossier = buildDossier({
-    title: 'Vice Studio — GTA VI Style Multi-Panel Cover Creator',
-    summary: 'AAA multi-panel GTA VI cover art engine with Vice City gradient grading, 3D lettering & offline canvas rendering.',
-    root: rootDir,
-    appDir: join(outDir, 'app'),
-    screenshotsDir: targetScreenshots,
+  const dossierBytes = buildDossier(outDir, {
+    text_max_bytes: 163840,
+    screenshots: { max: 4, max_bytes: 262144 },
+    app_max_files: 993,
+    app_max_bytes: 50331648,
+    app_path_max_bytes: 1000,
   });
 
   const dossierFile = join(outDir, 'dossier.json');
-  writeFileSync(dossierFile, JSON.stringify(dossier, null, 2), 'utf-8');
+  writeFileSync(dossierFile, dossierBytes);
   console.log(`[makefun] Vice Studio dossier packaged cleanly at ${dossierFile}`);
 }
 
